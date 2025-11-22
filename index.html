@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bantae - Where creative work happens in conversation. Built for humans and agents thinking together.">
+  <title>Bantae - Where creative work happens in conversation</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <main class="container">
+    <!-- Hero Section -->
+    <header class="hero">
+      <h1 class="logo">Bantae</h1>
+      <p class="tagline">Where creative work happens in conversation.</p>
+      <p class="expansion">Built for humans and agents thinking together—loose enough for insight, structured enough to matter.</p>
+    </header>
+
+    <!-- Secondary Section -->
+    <section class="description">
+      <p>Research, writing, design—the good parts happen when ideas move between minds. A question sparks a thread. A thread finds structure. Bantae keeps that flow alive.</p>
+      
+      <p>We're building a space where conversation stays generative but doesn't dissolve into noise. Where agents help clarify, connect, and hold threads—not because they replace human thinking, but because they're built to support it.</p>
+      
+      <p>This is for people who love the café-table moment, the late-night brainstorm, the hallway debate. The part of work that feels like play.</p>
+
+      <ul class="themes">
+        <li>Conversations that generate ideas, not just capture them</li>
+        <li>Structure that emerges from dialogue, not imposed on it</li>
+        <li>Agents as companions, not colleagues or minions</li>
+      </ul>
+    </section>
+
+    <!-- Email Signup Form -->
+    <section class="signup">
+      <h2>Join early access</h2>
+      
+      <form id="signup-form" class="signup-form" novalidate>
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            required 
+            aria-required="true"
+            autocomplete="name"
+          >
+          <span class="error-message" id="name-error" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            aria-required="true"
+            autocomplete="email"
+          >
+          <span class="error-message" id="email-error" role="alert"></span>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input 
+              type="checkbox" 
+              id="consent" 
+              name="consent" 
+              required 
+              aria-required="true"
+            >
+            <span>I want to be notified when Bantae or similar apps developed by Coded Thinking OÜ become available</span>
+          </label>
+          <span class="error-message" id="consent-error" role="alert"></span>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          <span class="btn-text">Get early access</span>
+          <span class="btn-loader" hidden>Submitting...</span>
+        </button>
+
+        <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        <a href="privacy.html">Privacy Policy</a>
+        <span class="separator">·</span>
+        <a href="https://coauthors.app" target="_blank" rel="noopener noreferrer">Coauthors is a tool by Bantae</a>
+      </p>
+      <p class="copyright">© 2025 Coded Thinking OÜ</p>
+    </footer>
+  </main>
+
+  <script src="assets/js/loops.js"></script>
+</body>
+</html>

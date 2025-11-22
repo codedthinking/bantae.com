@@ -17,7 +17,9 @@ Provide a minimal, authoritative landing page for **Bantae**, capturing early-ac
   - *"Built for humans and agents working together in structured, high-signal discussions."*
 
 #### 2. Email signup block
-- Single input field for email
+- Input field for name (required)
+- Input field for email (required)
+- GDPR-compliant checkbox (required): "I want to be notified when Bantae or similar apps developed by Coded Thinking OÜ become available"
 - Submit button ("Join early access")
 - Submit triggers Loops API call
 - Confirmation message on success
@@ -40,12 +42,16 @@ Provide a minimal, authoritative landing page for **Bantae**, capturing early-ac
 
 ### Implementation
 1. Use Loops embeddable form or direct API call:
-   - POST to `/api/v1/contacts` with email
+   - POST to `/api/v1/contacts` with name and email
 2. Track source:
    - Include custom field `source: "bantae_landing"`
-3. On success:
+3. GDPR Compliance:
+   - Require explicit opt-in checkbox
+   - Store consent timestamp
+   - Link to privacy policy
+4. On success:
    - Display inline confirmation text
-4. On error:
+5. On error:
    - Display generic error message + support email
 
 ### API Details
@@ -57,8 +63,10 @@ Provide a minimal, authoritative landing page for **Bantae**, capturing early-ac
 - **Payload:**
 ```json
 {
+  "firstName": "User Name",
   "email": "user@example.com",
-  "source": "bantae_landing"
+  "source": "bantae_landing",
+  "userGroup": "Coded Thinking OÜ - Bantae Landing"
 }
 ```
 
@@ -186,10 +194,16 @@ These should be considered in the layout structure but not implemented initially
 
 ---
 
-## J. Open Questions
+## J. Implementation Notes
 
-1. Should we include a name field, or email only?
-2. What should the support email be for error messages?
-3. Should we add any optional form fields?
-4. Do we need cookie consent for GitHub Pages with no tracking?
-5. What's the Coauthors URL we should link to?
+### Form Requirements (Confirmed)
+1. ✅ Name field: Required
+2. ✅ Email field: Required
+3. ✅ GDPR checkbox: Required - "I want to be notified when Bantae or similar apps developed by Coded Thinking OÜ become available"
+4. ✅ API keys stored as secrets (not in repository)
+
+### Open Questions
+1. What should the support email be for error messages?
+2. Do we need cookie consent for GitHub Pages with no tracking?
+3. What's the Coauthors URL we should link to?
+4. Privacy policy content (placeholder acceptable for v1)

@@ -18,6 +18,9 @@ All project specifications and planning documents are in the `docs/` folder:
 - **[SPEC_LANDING.md](docs/SPEC_LANDING.md)** — Landing page specification
 - **[SPEC_BRANDING.md](docs/SPEC_BRANDING.md)** — Branding elements and cross-product consistency
 - **[COPYWRITING.md](docs/COPYWRITING.md)** — Copywriting guide and tone requirements
+- **[COPY.md](docs/COPY.md)** — Final landing page copy
+- **[DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md)** — Complete design system specification
+- **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** — Deployment guide for GitHub Pages
 
 ## Project Structure
 
@@ -35,19 +38,28 @@ bantae.com/
 
 ## Development Status
 
-**Current Phase:** Planning & Documentation
+**Current Phase:** Ready for Deployment ✅
 
 ### Completed
 - ✅ Project initialization
-- ✅ Specifications saved
-- ✅ Implementation plan created
+- ✅ All specifications and planning documents
+- ✅ Design system defined
+- ✅ Landing page copy finalized
+- ✅ HTML structure implemented
+- ✅ CSS styling complete
+- ✅ Loops integration built
+- ✅ Privacy policy page created
+- ✅ GDPR-compliant consent checkbox
+- ✅ Form validation and error handling
+- ✅ Deployment documentation
 
-### Pending
-- ⏳ Design system definition
-- ⏳ Landing page copy
-- ⏳ HTML/CSS implementation
-- ⏳ Loops integration
-- ⏳ Testing & deployment
+### Ready for Deployment
+- ⏳ Configure Loops API key (create config.json from config.json.example)
+- ⏳ Test locally before deploying
+- ⏳ Push to GitHub repository
+- ⏳ Enable GitHub Pages
+- ⏳ Configure DNS for bantae.com
+- ⏳ Final testing on live URL
 
 ## Key Requirements
 
@@ -96,38 +108,59 @@ Email signup form sends to Loops API:
 - [ ] All links verified
 - [ ] Copy proofread
 
-## Open Questions
+## Form Implementation
 
-**Loops:**
-- API key setup?
-- Any custom fields configured?
+### Fields
+- **Name:** Required text input
+- **Email:** Required email input with validation
+- **Consent:** Required GDPR-compliant checkbox
+  - "I want to be notified when Bantae or similar apps developed by Coded Thinking OÜ become available"
 
-**Branding (from Coauthors):**
-- Font family?
-- Primary accent color (hex)?
-- Button border radius?
-- Icon set in use?
+### Loops Payload
+```json
+{
+  "firstName": "User Name",
+  "email": "user@example.com",
+  "source": "bantae_landing",
+  "userGroup": "Coded Thinking OÜ - Bantae Landing"
+}
+```
 
-**Content:**
-- Email only, or also name field?
-- Support email for error messages?
-- URL for Coauthors link?
+### Validation
+- Client-side email format validation
+- All fields required before submission
+- Clear error messages for each field
+- Success/error states with appropriate messaging
 
-**Deployment:**
-- GitHub organization/account?
-- Domain DNS access?
-- Analytics tracking (Plausible)?
+## Configuration Needed
 
-## Timeline
+Before deployment:
+1. **Loops API Key:** Add your key to `config.json` (copy from `config.json.example`)
+2. **Coauthors URL:** Update link in index.html footer (currently: https://coauthors.app)
+3. **Support Email:** Confirm error message email (currently: hello@bantae.com)
+4. **Privacy Contact:** Confirm privacy policy email (currently: privacy@codedthinking.com)
 
-Estimated 14 hours total:
-- Specs & Planning: 1h ✅
-- Design System: 2h
-- Copy Writing: 2h
-- HTML/CSS: 4h
-- Loops Integration: 2h
-- Testing: 2h
-- Deployment: 1h
+## Quick Start
+
+### 1. Configure API Key
+```bash
+cp config.json.example config.json
+# Edit config.json and add your Loops API key
+```
+
+### 2. Test Locally
+```bash
+# Using Python
+python3 -m http.server 8000
+
+# Using Node
+npx serve
+
+# Then visit http://localhost:8000
+```
+
+### 3. Deploy
+See [DEPLOYMENT.md](docs/DEPLOYMENT.md) for complete deployment instructions.
 
 ## Contact
 
@@ -135,5 +168,14 @@ For questions or updates, refer to the specification documents in `docs/`.
 
 ---
 
-**Status:** In Planning
+**Status:** Ready for Deployment ✅
 **Last Updated:** 2025-11-22
+
+## Next Steps
+
+1. Get Loops API key from https://app.loops.so
+2. Create `config.json` with your API key
+3. Test locally to verify form submission
+4. Push to GitHub and enable Pages
+5. Configure DNS for bantae.com
+6. Deploy and test on production URL

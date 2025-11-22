@@ -52,5 +52,6 @@ build/
 .cache/
 
 # Sensitive config files (Loops API keys, etc.)
+config.json
 config.local.js
 secrets.json
